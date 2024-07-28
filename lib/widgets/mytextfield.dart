@@ -5,26 +5,28 @@ import 'package:mark_it/constants.dart';
 class MyTextField extends StatelessWidget {
   const MyTextField(
       {super.key,
-      this.height,
-      this.expand = false,
+      this.wid=-99,
+      this.colo=pricol,
       this.hintText = '',
+      this.obsctext=false,
       required this.title,
       required this.controller});
-
-  final double? height;
-  final bool expand;
+ 
   final String hintText;
+  final bool obsctext;
   final String title;
   final TextEditingController controller;
+  final double? wid;
+  final Color colo;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.8,
+      width: wid==-99?MediaQuery.of(context).size.width * 0.8:wid,
       child: TextField(
+        style: TextStyle(color: colo),
+        obscureText: obsctext,
         controller: controller,
-        expands: expand,
-        maxLines: null,
         cursorColor: seccol,
         decoration: InputDecoration(
           labelText: title,

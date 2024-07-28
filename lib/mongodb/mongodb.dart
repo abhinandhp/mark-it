@@ -21,11 +21,11 @@ class MongoDb {
      try {
        db = await mongo.Db.create(mongoUrl);
     await db!.open();
-    print('connected');
+    //print('connected');
     inspect(db);
     await db!.collection('newc').insertOne({'newkey':"value"});
      } catch (e) {
-       print(e.toString());
+       //print(e.toString());
      }
 
      documents = allsubs();
@@ -37,7 +37,7 @@ class MongoDb {
     try {
       await db!.collection('insert').insertOne(data);
     } catch (e) {
-      print(e.toString());
+      //print(e.toString());
     }
   }
 
@@ -45,7 +45,7 @@ class MongoDb {
     try {
       await db!.collection('subjects').insertOne(data);
     } catch (e) {
-      print(e.toString());
+     // print(e.toString());
     }
   }
   
